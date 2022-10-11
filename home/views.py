@@ -12,3 +12,5 @@ def helloworld(request):
 
 def printar_nome(request, nome):
     return render(request, 'printarNome.html', {'nome': nome})
+def tarefas(request):
+    return render(request, 'list.html')
