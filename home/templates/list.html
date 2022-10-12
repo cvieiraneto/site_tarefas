@@ -3,19 +3,23 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
   <h1> Lista de Tarefas </h1>
-  <div class="col-2 add-div">
-    <i class="fas fa-plus"></i> Nova
-  </div>
+  <a href="/adicionartarefa/">
+      <div class="col-2 add-div">
+        <i class="fas fa-plus"></i> Nova
+      </div>
+  </a>
   <div class="col-9 search-div">
     <input class="form-control" type="text" id="busca" name="busca" placeholder="Digite o nome da tarefa para buscar">
     <i class="fas fa-search"></i>
   </div>
   <ul class="task-list">
+    {% for tarefa in tarefas %}
     <li class="task-item">
-      <span>Título da Tarefa</span>
+      <span><a href="/tarefa/{{tarefa.id}}"> {{tarefa.titulo}} </a></span>
       <span><i class="fas fa-trash"></i></span>
       <span><i class="fas fa-edit"></i></span>
     </li>
+    {% endfor %}
   </ul>
 </div>
 
