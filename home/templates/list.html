@@ -12,12 +12,23 @@
     <input class="form-control" type="text" id="busca" name="busca" placeholder="Digite o nome da tarefa para buscar">
     <i class="fas fa-search"></i>
   </div>
+
+  <!-- Comando para imprimir mensagens -->
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <!-- Comando para imprimir mensagens -->
+
   <ul class="task-list">
     {% for tarefa in tarefas %}
     <li class="task-item">
       <span><a href="/tarefa/{{tarefa.id}}"> {{tarefa.titulo}} </a></span>
-      <span><i class="fas fa-trash"></i></span>
-      <span><i class="fas fa-edit"></i></span>
+      <a href="/deletar/{{tarefa.id}}"> <span><i class="fas fa-trash"></i></span></a>
+      <a href="/editar/{{tarefa.id}}"><span><i class="fas fa-edit"></i></span></a>
     </li>
     {% endfor %}
   </ul>
